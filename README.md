@@ -1,6 +1,6 @@
 # Code Skills
 
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-13-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-14-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
 
 A collection of production-grade Skills for code review, secure coding, and security auditing. Built by combining OWASP standards, real-world patterns, and battle-tested checklists into comprehensive, actionable skill definitions.
 
@@ -38,8 +38,9 @@ Compatible with **Claude Code** and any agent supporting the `SKILL.md` format.
 
 | Skill                               | Description                                                                                                                                                          | Size |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| [postgres](postgres/)               | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases.        | 7 KB |
-| [graphene-django](graphene-django/) | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs. | 4 KB |
+| [postgres](postgres/)                 | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases.                                                                           | 7 KB  |
+| [graphene-django](graphene-django/)   | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs.                                                                    | 4 KB  |
+| [strawberry-django](strawberry-django/) | Strawberry-Django best practices — DjangoOptimizerExtension, DataLoaders, type-hint-first schemas, CRUD mutations, filters/pagination/Relay, permission extensions, security hardening, async/subscriptions, testing.                   | 5 KB  |
 
 ## Architecture
 
@@ -57,7 +58,8 @@ ai-coding-skills/
 ├── angular-structure/           # Angular enterprise architecture guide
 ├── react-structure/             # React enterprise architecture guide
 ├── postgres/                    # PostgreSQL best practices reference
-└── graphene-django/             # Graphene-Django GraphQL reference
+├── graphene-django/             # Graphene-Django GraphQL reference
+└── strawberry-django/           # Strawberry-Django GraphQL reference
 ```
 
 Every skill directory contains a `SKILL.md` (the canonical format Claude reads). Some skills also ship a `references/` folder with deeper material loaded on demand.
@@ -109,6 +111,7 @@ The skills split into two groups: **workflow skills** that drive a lifecycle pha
 │                                                         │
 │   angular-security    react-security                    │
 │   postgres            graphene-django                   │
+│   strawberry-django                                     │
 │                                                         │
 │   Pulled in when the work touches a specific framework, │
 │   database, or library. Not tied to a single phase.     │
@@ -123,7 +126,7 @@ The skills split into two groups: **workflow skills** that drive a lifecycle pha
 3. **Review** with `code-reviewer` + framework overlay — catch correctness, performance, and design issues
 4. **Audit** with `security-auditor` — final security validation before deploy
 
-Reference skills (`postgres`, `graphene-django`, `angular-security`, `react-security`) load automatically whenever the work touches their domain, regardless of which phase you're in.
+Reference skills (`postgres`, `graphene-django`, `strawberry-django`, `angular-security`, `react-security`) load automatically whenever the work touches their domain, regardless of which phase you're in.
 
 ## Installation
 
