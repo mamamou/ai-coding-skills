@@ -1,6 +1,6 @@
 # Code Skills
 
-![License: MIT](https://img.shields.io/github/license/marmamou/ai-coding-skills?color=green) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-13-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-13-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
 
 A collection of production-grade Skills for code review, secure coding, and security auditing. Built by combining OWASP standards, real-world patterns, and battle-tested checklists into comprehensive, actionable skill definitions.
 
