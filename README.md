@@ -22,31 +22,57 @@ Compatible with **Claude Code** and any agent supporting the `SKILL.md` format.
 |---|---|---|
 | [security-auditor](security-auditor/) | Post-hoc security audit with a threat-actor mindset. Three layers: OWASP Top 10:2025 static analysis, access control & authorization audit, pen test pattern recognition. Read-only — finds vulnerabilities, doesn't fix them. | 21 KB |
 | [secure-by-design-coding](secure-by-design-coding/) | Proactive secure coding companion that embeds security controls while writing code. Based on OWASP Proactive Controls C1–C10 and the Secure-by-Design Framework. Writes secure code from the start instead of finding flaws after. | 32 KB |
+| [angular-security](angular-security/) | Angular frontend security reference — XSS, DomSanitizer, template injection, CSRF/XSRF, HttpClient security, CSP, Angular SSR hardening, OWASP 2025. Load when writing or reviewing security-sensitive Angular code. | 23 KB |
+| [react-security](react-security/) | React frontend security reference — XSS, CSRF, auth patterns, token storage, CSP, Server Components/Actions, Next.js hardening, OWASP 2025. Load when writing or reviewing security-sensitive React code. | 24 KB |
+
+### Architecture
+
+| Skill | Description | Size |
+|---|---|---|
+| [angular-structure](angular-structure/) | Angular enterprise architecture — folder structure, feature slices, signals, standalone components, new control flow, deferrable views, zoneless, state management, data fetching. Use when scaffolding or restructuring an Angular project. | 27 KB |
+| [react-structure](react-structure/) | React enterprise architecture — folder structure, feature slices, routing (TanStack Router, React Router v7, Next.js App Router), TanStack Query, state management, data fetching. Use when scaffolding or restructuring a React project. | 18 KB |
+
+### Data & Libraries
+
+| Skill | Description | Size |
+|---|---|---|
+| [postgres](postgres/) | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases. | 7 KB |
+| [graphene-django](graphene-django/) | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs. | 4 KB |
 
 ## Architecture
 
 ```
-code-skills/
+ai-coding-skills/
 ├── code-reviewer/               # Universal foundation (all languages)
-│   └── SKILL.md
 ├── code-reviewer-angular/       # Angular overlay (extends universal)
-│   └── SKILL.md
 ├── code-reviewer-django/        # Django overlay (extends universal)
-│   └── SKILL.md
 ├── code-reviewer-node/          # Node.js overlay (extends universal)
-│   └── SKILL.md
 ├── code-reviewer-react/         # React overlay (extends universal)
-│   └── SKILL.md
 ├── security-auditor/            # Dedicated security audit (read-only)
-│   └── SKILL.md
-└── secure-by-design-coding/     # Proactive secure coding (read + write)
-    └── SKILL.md
+├── secure-by-design-coding/     # Proactive secure coding (read + write)
+├── angular-security/            # Angular-specific security reference
+├── react-security/              # React-specific security reference
+├── angular-structure/           # Angular enterprise architecture guide
+├── react-structure/             # React enterprise architecture guide
+├── postgres/                    # PostgreSQL best practices reference
+└── graphene-django/             # Graphene-Django GraphQL reference
 ```
+
+Every skill directory contains a `SKILL.md` (the canonical format Claude reads). Some skills also ship a `references/` folder with deeper material loaded on demand.
 
 ### How they work together
 
+The skills split into two groups: **workflow skills** that drive a lifecycle phase (plan → write → review → audit) and **reference skills** that load on demand when the work touches a specific framework, library, or database.
+
 ```
 ┌─────────────────────────────────────────────────────────┐
+│                Planning & Architecture                  │
+│                                                         │
+│   angular-structure    react-structure                  │
+│   "Lay out the project so it can scale"                 │
+│   Folder structure, state management, data fetching     │
+│                                                         │
+├─────────────────────────────────────────────────────────┤
 │                   Writing Code                          │
 │                                                         │
 │   secure-by-design-coding                               │
@@ -73,13 +99,29 @@ code-skills/
 │   Read-only — reports findings, never modifies code     │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
+
+                  ▲ loaded on demand during any phase ▲
+
+┌─────────────────────────────────────────────────────────┐
+│                     Reference Skills                    │
+│                                                         │
+│   angular-security    react-security                    │
+│   postgres            graphene-django                   │
+│                                                         │
+│   Pulled in when the work touches a specific framework, │
+│   database, or library. Not tied to a single phase.     │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ### Recommended workflow
 
-1. **Write** with `secure-by-design-coding` active — security controls are embedded as you go
-2. **Review** with `code-reviewer` + framework overlay — catch correctness, performance, and design issues
-3. **Audit** with `security-auditor` — final security validation before deploy
+1. **Plan** with `angular-structure` or `react-structure` when scaffolding a new project or reshaping an existing one
+2. **Write** with `secure-by-design-coding` active — security controls are embedded as you go
+3. **Review** with `code-reviewer` + framework overlay — catch correctness, performance, and design issues
+4. **Audit** with `security-auditor` — final security validation before deploy
+
+Reference skills (`postgres`, `graphene-django`, `angular-security`, `react-security`) load automatically whenever the work touches their domain, regardless of which phase you're in.
 
 ## Installation
 
