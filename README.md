@@ -8,35 +8,35 @@ Compatible with **Claude Code** and any agent supporting the `SKILL.md` format.
 
 ### Code Review
 
-| Skill | Description | Size |
-|---|---|---|
-| [code-reviewer](code-reviewer/) | Universal code reviewer — correctness, security (OWASP 2025), performance, maintainability, tests, documentation. Foundation skill that all overlays extend. | 8 KB |
+| Skill                                           | Description                                                                                                                                                        | Size  |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| [code-reviewer](code-reviewer/)                 | Universal code reviewer — correctness, security (OWASP 2025), performance, maintainability, tests, documentation. Foundation skill that all overlays extend.       | 8 KB  |
 | [code-reviewer-angular](code-reviewer-angular/) | Angular overlay — version-aware rules for Angular 17–20+, signals, RxJS, SSR, NgRx, Material. Runs universal reviewer first, then applies Angular-specific checks. | 19 KB |
-| [code-reviewer-django](code-reviewer-django/) | Django overlay — version-aware rules for Django 3–5, DRF, Celery, async ORM, Python 3.8–3.12. | 12 KB |
-| [code-reviewer-node](code-reviewer-node/) | Node.js overlay — Express, JWT/OAuth, GraphQL/Apollo, BullMQ, TypeScript strict mode, Node 18–22. | 15 KB |
-| [code-reviewer-react](code-reviewer-react/) | React overlay — React 17–19, hooks, RSC/Next.js App Router, TanStack Query, Zustand, React Hook Form. | 18 KB |
+| [code-reviewer-django](code-reviewer-django/)   | Django overlay — version-aware rules for Django 3–5, DRF, Celery, async ORM, Python 3.8–3.12.                                                                      | 12 KB |
+| [code-reviewer-node](code-reviewer-node/)       | Node.js overlay — Express, JWT/OAuth, GraphQL/Apollo, BullMQ, TypeScript strict mode, Node 18–22.                                                                  | 15 KB |
+| [code-reviewer-react](code-reviewer-react/)     | React overlay — React 17–19, hooks, RSC/Next.js App Router, TanStack Query, Zustand, React Hook Form.                                                              | 18 KB |
 
 ### Security
 
-| Skill | Description | Size |
-|---|---|---|
-| [security-auditor](security-auditor/) | Post-hoc security audit with a threat-actor mindset. Three layers: OWASP Top 10:2025 static analysis, access control & authorization audit, pen test pattern recognition. Read-only — finds vulnerabilities, doesn't fix them. | 21 KB |
+| Skill                                               | Description                                                                                                                                                                                                                        | Size  |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| [security-auditor](security-auditor/)               | Post-hoc security audit with a threat-actor mindset. Three layers: OWASP Top 10:2025 static analysis, access control & authorization audit, pen test pattern recognition. Read-only — finds vulnerabilities, doesn't fix them.     | 21 KB |
 | [secure-by-design-coding](secure-by-design-coding/) | Proactive secure coding companion that embeds security controls while writing code. Based on OWASP Proactive Controls C1–C10 and the Secure-by-Design Framework. Writes secure code from the start instead of finding flaws after. | 32 KB |
-| [angular-security](angular-security/) | Angular frontend security reference — XSS, DomSanitizer, template injection, CSRF/XSRF, HttpClient security, CSP, Angular SSR hardening, OWASP 2025. Load when writing or reviewing security-sensitive Angular code. | 23 KB |
-| [react-security](react-security/) | React frontend security reference — XSS, CSRF, auth patterns, token storage, CSP, Server Components/Actions, Next.js hardening, OWASP 2025. Load when writing or reviewing security-sensitive React code. | 24 KB |
+| [angular-security](angular-security/)               | Angular frontend security reference — XSS, DomSanitizer, template injection, CSRF/XSRF, HttpClient security, CSP, Angular SSR hardening, OWASP 2025. Load when writing or reviewing security-sensitive Angular code.               | 23 KB |
+| [react-security](react-security/)                   | React frontend security reference — XSS, CSRF, auth patterns, token storage, CSP, Server Components/Actions, Next.js hardening, OWASP 2025. Load when writing or reviewing security-sensitive React code.                          | 24 KB |
 
 ### Architecture
 
-| Skill | Description | Size |
-|---|---|---|
+| Skill                                   | Description                                                                                                                                                                                                                                  | Size  |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | [angular-structure](angular-structure/) | Angular enterprise architecture — folder structure, feature slices, signals, standalone components, new control flow, deferrable views, zoneless, state management, data fetching. Use when scaffolding or restructuring an Angular project. | 27 KB |
-| [react-structure](react-structure/) | React enterprise architecture — folder structure, feature slices, routing (TanStack Router, React Router v7, Next.js App Router), TanStack Query, state management, data fetching. Use when scaffolding or restructuring a React project. | 18 KB |
+| [react-structure](react-structure/)     | React enterprise architecture — folder structure, feature slices, routing (TanStack Router, React Router v7, Next.js App Router), TanStack Query, state management, data fetching. Use when scaffolding or restructuring a React project.    | 18 KB |
 
 ### Data & Libraries
 
-| Skill | Description | Size |
-|---|---|---|
-| [postgres](postgres/) | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases. | 7 KB |
+| Skill                               | Description                                                                                                                                                          | Size |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| [postgres](postgres/)               | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases.        | 7 KB |
 | [graphene-django](graphene-django/) | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs. | 4 KB |
 
 ## Architecture
@@ -95,7 +95,7 @@ The skills split into two groups: **workflow skills** that drive a lifecycle pha
 │                                                         │
 │   security-auditor                                      │
 │   "How would an attacker abuse this?"                   │
-│   OWASP Top 10:2025 + ASVS 5.0                         │
+│   OWASP Top 10:2025 + ASVS 5.0                          │
 │   Read-only — reports findings, never modifies code     │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
@@ -158,13 +158,13 @@ cp -r /path/to/code-skills/code-reviewer ~/.claude/skills/
 
 ## Standards & References
 
-| Standard | Version | Used by |
-|---|---|---|
-| [OWASP Top 10](https://owasp.org/Top10/) | 2025 | security-auditor, code-reviewer |
-| [OWASP Proactive Controls](https://top10proactive.owasp.org/) | 2024 | secure-by-design-coding |
-| [OWASP Secure-by-Design Framework](https://owasp.org/www-project-secure-by-design-framework/) | 0.5.0 | secure-by-design-coding |
-| [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) | 5.0 | security-auditor, secure-by-design-coding |
-| [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) | Latest | All skills |
+| Standard                                                                                      | Version | Used by                                   |
+| --------------------------------------------------------------------------------------------- | ------- | ----------------------------------------- |
+| [OWASP Top 10](https://owasp.org/Top10/)                                                      | 2025    | security-auditor, code-reviewer           |
+| [OWASP Proactive Controls](https://top10proactive.owasp.org/)                                 | 2024    | secure-by-design-coding                   |
+| [OWASP Secure-by-Design Framework](https://owasp.org/www-project-secure-by-design-framework/) | 0.5.0   | secure-by-design-coding                   |
+| [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)       | 5.0     | security-auditor, secure-by-design-coding |
+| [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)                               | Latest  | All skills                                |
 
 ## License
 
