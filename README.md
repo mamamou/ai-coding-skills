@@ -1,4 +1,4 @@
-# Code Skills
+# AI Coding Skills
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-14-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
 
@@ -36,11 +36,11 @@ Compatible with **Claude Code** and any agent supporting the `SKILL.md` format.
 
 ### Data & Libraries
 
-| Skill                               | Description                                                                                                                                                          | Size |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| [postgres](postgres/)                 | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases.                                                                           | 7 KB  |
-| [graphene-django](graphene-django/)   | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs.                                                                    | 4 KB  |
-| [strawberry-django](strawberry-django/) | Strawberry-Django best practices — DjangoOptimizerExtension, DataLoaders, type-hint-first schemas, CRUD mutations, filters/pagination/Relay, permission extensions, security hardening, async/subscriptions, testing.                   | 5 KB  |
+| Skill                                   | Description                                                                                                                                                                                                           | Size |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| [postgres](postgres/)                   | PostgreSQL best practices — query optimization, schema design, indexing, security, operations, performance tuning. Load when working with Postgres databases.                                                         | 7 KB |
+| [graphene-django](graphene-django/)     | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs.                                                  | 4 KB |
+| [strawberry-django](strawberry-django/) | Strawberry-Django best practices — DjangoOptimizerExtension, DataLoaders, type-hint-first schemas, CRUD mutations, filters/pagination/Relay, permission extensions, security hardening, async/subscriptions, testing. | 5 KB |
 
 ## Architecture
 
