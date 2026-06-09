@@ -130,26 +130,41 @@ Reference skills (`postgres`, `graphene-django`, `strawberry-django`, `angular-s
 
 ## Installation
 
-### Claude Code (project-specific)
+### Via `npx` (recommended)
 
-Copy the desired skill directories into your project's `.claude/skills/` folder:
+No cloning required:
 
 ```bash
-# Copy a single skill
-cp -r /path/to/code-skills/code-reviewer .claude/skills/
+# Install all skills
+npx skills add mamamou/ai-coding-skills
+
+# Install a single skill
+npx skills add mamamou/ai-coding-skills --skill code-reviewer
+
+# Target a specific agent (e.g. Claude Code)
+npx skills add mamamou/ai-coding-skills -a claude-code
+```
+
+### Manual copy
+
+Skills live under `skills/<name>/`. Copy the directories you want into your agent's skills folder.
+
+**Claude Code (project-specific):**
+
+```bash
+# Clone, then copy a single skill
+cp -r /path/to/ai-coding-skills/skills/code-reviewer .claude/skills/
 
 # Or copy all skills
-for dir in /path/to/code-skills/*/; do
+for dir in /path/to/ai-coding-skills/skills/*/; do
   cp -r "$dir" .claude/skills/
 done
 ```
 
-### Global (available in all projects)
-
-Copy skills into your global Claude Code skills directory:
+**Global (available in all projects):**
 
 ```bash
-cp -r /path/to/code-skills/code-reviewer ~/.claude/skills/
+cp -r /path/to/ai-coding-skills/skills/code-reviewer ~/.claude/skills/
 ```
 
 ## Key Features
