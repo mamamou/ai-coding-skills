@@ -1,6 +1,6 @@
 # AI Coding Skills
 
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-14-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2) ![SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue) ![OWASP](https://img.shields.io/badge/OWASP-2025-red) ![Skills](https://img.shields.io/badge/skills-15-brightgreen) ![Last Commit](https://img.shields.io/github/last-commit/marmamou/ai-coding-skills) ![Stars](https://img.shields.io/github/stars/marmamou/ai-coding-skills?style=social)
 
 A collection of production-grade Skills for code review, secure coding, and security auditing. Built by combining OWASP standards, real-world patterns, and battle-tested checklists into comprehensive, actionable skill definitions.
 
@@ -42,6 +42,12 @@ Compatible with **Claude Code** and any agent supporting the `SKILL.md` format.
 | [graphene-django](graphene-django/)     | Graphene-Django best practices — N+1 prevention, query optimization, schema design, security, caching, testing. Load when working with graphene-django GraphQL APIs.                                                  | 4 KB |
 | [strawberry-django](strawberry-django/) | Strawberry-Django best practices — DjangoOptimizerExtension, DataLoaders, type-hint-first schemas, CRUD mutations, filters/pagination/Relay, permission extensions, security hardening, async/subscriptions, testing. | 5 KB |
 
+### Maintenance
+
+| Skill                               | Description                                                                                                                                                                                                                                                                    | Size |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- |
+| [library-updater](library-updater/) | Dependency upgrade audit for any stack (npm, pip/poetry/uv, Composer, cargo, Go, Maven/Gradle, NuGet, Bundler, pub, hex). Checks latest versions against each other (peer/runtime constraints), researches breaking changes, scans the codebase for impact, and writes a wave-based upgrade report. Report-only. | 9 KB |
+
 ## Architecture
 
 ```
@@ -59,10 +65,11 @@ ai-coding-skills/
 ├── react-structure/             # React enterprise architecture guide
 ├── postgres/                    # PostgreSQL best practices reference
 ├── graphene-django/             # Graphene-Django GraphQL reference
-└── strawberry-django/           # Strawberry-Django GraphQL reference
+├── strawberry-django/           # Strawberry-Django GraphQL reference
+└── library-updater/             # Dependency upgrade audit (report-only)
 ```
 
-Every skill directory contains a `SKILL.md` (the canonical format Claude reads). Some skills also ship a `references/` folder with deeper material loaded on demand.
+Every skill directory contains a `SKILL.md` (the canonical format Claude reads). Some skills also ship a `references/` folder with deeper material loaded on demand, or a `scripts/` folder with helpers the skill runs.
 
 ### How they work together
 
@@ -102,6 +109,14 @@ The skills split into two groups: **workflow skills** that drive a lifecycle pha
 │   OWASP Top 10:2025 + ASVS 5.0                          │
 │   Read-only — reports findings, never modifies code     │
 │                                                         │
+├─────────────────────────────────────────────────────────┤
+│                   Maintaining                           │
+│                                                         │
+│   library-updater                                       │
+│   "What can we upgrade, and what breaks if we do?"      │
+│   Cross-compatibility, breaking changes, code impact    │
+│   Report-only — never touches manifests or lockfiles    │
+│                                                         │
 └─────────────────────────────────────────────────────────┘
 
                   ▲ loaded on demand during any phase ▲
@@ -125,6 +140,7 @@ The skills split into two groups: **workflow skills** that drive a lifecycle pha
 2. **Write** with `secure-by-design-coding` active — security controls are embedded as you go
 3. **Review** with `code-reviewer` + framework overlay — catch correctness, performance, and design issues
 4. **Audit** with `security-auditor` — final security validation before deploy
+5. **Maintain** with `library-updater` — periodic dependency audit that plans upgrades in safe waves
 
 Reference skills (`postgres`, `graphene-django`, `strawberry-django`, `angular-security`, `react-security`) load automatically whenever the work touches their domain, regardless of which phase you're in.
 
